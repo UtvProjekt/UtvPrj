@@ -4,27 +4,44 @@ import java.util.*;
 
 public class AbilityBook {
 	
+	/*
+	 * A global HashMap that contains all the other HashMaps
+	 * for abilities.
+	 * */
 	private HashMap<Integer, HashMap> global;
 
+	/*
+	 * Abilities for mage's including HashMap for mage's
+	 * */
 	private HashMap<Integer, String> abilityMage;
 	private String Frostbolt;
 	private String Intelligence;
 	private String Fireblast;
 
+	/*
+	 * Abilities for assassin's including HashMap for assassin's
+	 * */
 	private HashMap<Integer, String> abilityAssassin;
 	private String Backstab;
 	private String Poisonblades;
 	private String Unconquerable;
 
+	/*
+	 * Abilities for tanks including HashMap for tanks
+	 * */
 	private HashMap<Integer, String> abilityTank;
 	private String Charge;
 	private String Enrage;
 	private String Recharge;
 	
+	/*
+	 * Every effect in the game.
+	 * */
+	
 	
 	public AbilityBook() {
 		
-		global = new HashMap<>();
+		global = new HashMap<Integer, HashMap>();
 		
 		abilityMage = new HashMap<Integer, String>();
 		Frostbolt = "Deal 15 damage to the enemy and has 20% chance to freeze the enemy.";
@@ -62,4 +79,31 @@ public class AbilityBook {
 		global.put(3, abilityTank);
 	}
 	
+	public void printGlobal() {
+		System.out.println("All attacks for all heroes!");
+		printMage();
+		printAssassin();
+		printTank();
+	}
+	
+	public void printMage() {
+		System.out.println("\nAttacks for Mage.");
+		for(Map.Entry<Integer, String> entry : abilityMage.entrySet()) {
+			System.out.println("Attack " + entry.getKey() + ": " + entry.getValue());
+		}	
+	}
+	
+	public void printAssassin() {	
+		System.out.println("\nAttacks for Assassins.");
+		for(Map.Entry<Integer, String> entry : abilityAssassin.entrySet()) {
+			System.out.println("Attack " + entry.getKey() + ": " + entry.getValue());
+		}	
+	}
+	
+	public void printTank() {		
+		System.out.println("\nAttacks for Tanks.");
+		for(Map.Entry<Integer, String> entry : abilityTank.entrySet()) {
+			System.out.println("Attack " + entry.getKey() + ": " + entry.getValue());
+		}	
+	}	
 }
