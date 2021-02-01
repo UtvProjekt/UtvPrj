@@ -87,9 +87,9 @@ public class ChooseYourCharacter {
 
 	}
 
-	public void setUserName(Scanner input) {
-		System.out.println("Create Username: ");
-		userName = input.next();
+	public void setUserName(String userName) {
+		
+		this.userName = userName;
 	}
 
 	public String getUserName() {
