@@ -7,22 +7,22 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 public class AbilityDamage {
-	private int playerHealth;
+	private int playerHealth = 100;
 	private int bossHealth = 300;
 
-	public void PlayerAttack(ChooseYourCharacter player, ChooseYourCharacter boss, int i) {
+	public void PlayerAttack(ChooseYourCharacter player, int i) {
 		
 		if(i == 0)
 		{
-			playerHealth = player.getHealth();
+			playerHealth = player.getHealthOfCharacter();
 		}
 		
-		System.out.println("Your turn! \nChoose an ability to use (1/2/3) p to show ability book");
+		System.out.println("Your turn! \nChoose an ability to use (1/2/3) or 4 to show the ability book");
 		Scanner scan = new Scanner(System.in);
 		int ability = scan.nextInt();
 		int random = ThreadLocalRandom.current().nextInt(10)+1;
 		
-		while(ability == 1 || ability == 2)
+		while(ability == 1 || ability == 2 || ability == 3)
 		{
 			if(player.getTypeOfCharacter() == TheDiffrentCharacters.FAERIE || player.getTypeOfCharacter() == TheDiffrentCharacters.SOUL_REAPER)
 			{
@@ -54,13 +54,13 @@ public class AbilityDamage {
 					random = ThreadLocalRandom.current().nextInt(10)+1;
 					System.out.println("You used Backstab");
 					if(random<5) {
-						System.out.println("You dealt 40(critical) damage to the boss!");
-						bossHealth = bossHealth -40;
+						System.out.println("You dealt 60(critical) damage to the boss!");
+						bossHealth = bossHealth -60;
 					}
 					else
 					{
-						System.out.println("You dealt 20 damage to the boss!");
-						bossHealth = bossHealth -20;
+						System.out.println("You dealt 30 damage to the boss!");
+						bossHealth = bossHealth -30;
 					}
 				}
 				else if(ability == 2)
@@ -75,20 +75,21 @@ public class AbilityDamage {
 					random = ThreadLocalRandom.current().nextInt(10)+1;
 					if(random < 2)
 					{
-						System.out.println("You strike 4 times for a total of 60 damage");
-						bossHealth = bossHealth - 60;
+						System.out.println("You strike 4 times for a total of 80 damage");
+						bossHealth = bossHealth - 80;
 					}
 					else if(random<3) {
-						System.out.println("You strike 3 time for a total of 45 damage");
-						bossHealth = bossHealth - 45;
+						System.out.println("You strike 3 time for a total of 60 damage");
+						bossHealth = bossHealth - 60;
 					}
 					else if(random <5)
 					{
-						System.out.println("You strike 2 times for a total of 30 damage");
-						bossHealth = bossHealth - 45;
+						System.out.println("You strike 2 times for a total of 40 damage");
+						bossHealth = bossHealth - 40;
 					}
 					else {
-						System.out.println("You strike 1 time for a total of 15 damage");
+						System.out.println("You strike 1 time for a total of 20 damage");
+						bossHealth = bossHealth - 20;
 					}
 				}
 			}
@@ -137,6 +138,21 @@ public class AbilityDamage {
 			}
 			
 			break;
+		}
+		AbilityBook abilities = new AbilityBook();
+		if(ability == 4)
+		{
+			if(player.getTypeOfCharacter() == TheDiffrentCharacters.ANGEL || player.getTypeOfCharacter() == TheDiffrentCharacters.NIGHTMARE_SHADOW) {
+				abilities.printAssassin();
+			}
+			else if(player.getTypeOfCharacter() == TheDiffrentCharacters.FAERIE || player.getTypeOfCharacter() == TheDiffrentCharacters.SOUL_REAPER) {
+				abilities.printMage();
+			}
+			else if(player.getTypeOfCharacter() == TheDiffrentCharacters.SHEILDBEARER || player.getTypeOfCharacter() == TheDiffrentCharacters.DEMON) {
+				abilities.printTank();
+			}
+			
+				
 		}
 		
 		
