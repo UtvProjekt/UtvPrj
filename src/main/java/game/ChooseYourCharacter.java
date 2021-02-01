@@ -9,16 +9,24 @@ public class ChooseYourCharacter {
 	private TheDiffrentCharacters typeOfCharacter;
 	private int healthOfCharacter;
 
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * **/
+	
 	public void CreateYourCharacter(Scanner input) {
 
-		try (input) {
-			System.out.println("Pick a side [GOOD/BAD]: ");
+			System.out.println("Pick a side [GOOD/EVIL]: ");
 			typeOfSide = input.next();
 
-			if (!typeOfSide.toLowerCase().equals("good") && !typeOfSide.toLowerCase().equals("bad")) {
+			if (!typeOfSide.toLowerCase().equals("good") && !typeOfSide.toLowerCase().equals("evil")) {
 				System.out.println("That is not valid side!");
 
-				while (!typeOfSide.toLowerCase().equals("good") && !typeOfSide.toLowerCase().equals("bad")) {
+				while (!typeOfSide.toLowerCase().equals("good") && !typeOfSide.toLowerCase().equals("evil")) {
 					System.out.print("Pick a side [GOOD/BAD]: ");
 					typeOfSide = input.next();
 				}
@@ -52,7 +60,7 @@ public class ChooseYourCharacter {
 				}
 
 			}
-			if (typeOfSide.toLowerCase().equals("bad")) {
+			if (typeOfSide.toLowerCase().equals("evil")) {
 				String answer;
 				System.out.println("Pick a character - [NightmareShadow/SoulReaper/Demon]: ");
 				answer = input.next();
@@ -80,34 +88,49 @@ public class ChooseYourCharacter {
 					healthOfCharacter = 250;
 				}
 			}
-		} 
-		catch (Exception e) {
-
-		}
 
 	}
-
+	
+	/**
+	 * 
+	 * @param userName input to the users name
+	 **/
 	public void setUserName(String userName) {
 		
 		this.userName = userName;
 	}
-
+	/**
+	 * 
+	 * @return userName returns the objects name
+	 **/
 	public String getUserName() {
 		return userName;
 	}
-
+	/**
+	 * 
+	 * @return typeOfSide returns witch side the player is on
+	 **/
 	public String getTypeOfSide() {
 		return typeOfSide;
 	}
-
+	/**
+	 * 
+	 * @return typeOfCharacter returns the name/type of the chosen character
+	 **/
 	public TheDiffrentCharacters getTypeOfCharacter() {
 		return typeOfCharacter;
 	}
-
+	/**
+	 * 
+	 * @return healthOfCharacter returns the health value of a specific character
+	 **/
 	public int getHealthOfCharacter() {
 		return healthOfCharacter;
 	}
-
+	/**
+	 * 
+	 * @return returns the string with the different values
+	 **/
 	@Override
 	public String toString() {
 		return String.format("UserName: %s \nSide: %s \nClass: %s \nHealth: %d", userName, typeOfSide, typeOfCharacter,
