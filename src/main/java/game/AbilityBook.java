@@ -6,8 +6,9 @@ public class AbilityBook {
 	
 	/*
 	 * A global HashMap that contains all the other HashMaps
-	 * for abilities.
+	 * for abilities and Constructor for getName/getTypeOfSide/getTypeOfCharacter.
 	 * */
+	private ChooseYourCharacter player;
 	private HashMap<Integer, HashMap> global;
 
 	/*
@@ -96,11 +97,18 @@ public class AbilityBook {
 		
 	}
 	
+	public void characterInfo() {
+		System.out.println("Name: " + player.getName()
+		+ "\nSide: " + player.getTypeOfSide()
+		+ "\nClass: " + player.getTypeOfCharacter);
+	}
+	
 	public void printGlobal() {
 		System.out.println("All attacks for all heroes");
 		printMage();
 		printAssassin();
 		printTank();
+		printEffects();
 	}
 	
 	public void printMage() {
@@ -125,7 +133,7 @@ public class AbilityBook {
 	}
 	
 	public void printEffects() {
-		System.out.println("Effects.");
+		System.out.println("\nEffects.");
 		for(Map.Entry<String, String> entry : effects.entrySet()) {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		}
