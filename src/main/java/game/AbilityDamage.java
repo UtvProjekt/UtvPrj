@@ -43,8 +43,8 @@ public class AbilityDamage {
 				}
 				else if(ability == 3) {
 					System.out.println("You used a Healing Potion");
-					System.out.println("You heal for 30!");
-					playerHealth = playerHealth + 30;
+					System.out.println("You heal for 25!");
+					playerHealth = playerHealth + 25;
 				}
 			}
 			
@@ -102,7 +102,7 @@ public class AbilityDamage {
 					System.out.println("You charged at the boss dealing 25 damage");
 					random = ThreadLocalRandom.current().nextInt(10)+1;
 					bossHealth = bossHealth - 25;
-					if(random<3) {
+					if(random<4) {
 						System.out.println("The charge stunned the boss");
 						break;
 					}
