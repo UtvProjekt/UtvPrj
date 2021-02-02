@@ -89,6 +89,7 @@ public class AbilityBook {
 		effects.put("Freeze", Freeze);
 		effects.put("Invisible", Invisible);
 		effects.put("Stun", Stun);
+		
 	}
 	
 	/* 4 different print methods
@@ -131,8 +132,32 @@ public class AbilityBook {
 	public void printEffects() {
 		System.out.println("\nEffects.");
 		for(Map.Entry<String, String> entry : effects.entrySet()) {
-			System.out.println(entry.getKey() + ": " + entry.getValue());
+			System.out.println(entry.getKey().toString() + ": " + entry.getValue().toString());
 		}
 		System.out.println("");
 	}
+	/*Testing methods for "AbilityBookTest"
+	 * I am testing whether its stored or not */
+	public boolean mageHasAttack() {
+		if(abilityMage.containsValue(Frostbolt) && abilityMage.containsValue(Fireblast) && abilityMage.containsValue(HealingPotion)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean assasinhasAttack() {
+		if(abilityAssassin.containsValue(Backstab) && abilityAssassin.containsValue(Unconquerable) && abilityAssassin.containsValue(SlicersWrath)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean tankHasAttack() {
+		if(abilityTank.containsValue(SheildRush) && abilityTank.containsValue(SheildBlock) && abilityTank.containsValue(AxeThrow)) {
+			return true;
+		}
+		return false;
+	}
+	
+
 }
