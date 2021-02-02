@@ -66,7 +66,7 @@ public class AbilityBook {
 		Stun = "The enemy is stunned for 1 turn.";
 		
 		/*
-		 * Adding all the abilities to the maps
+		 * Adding all the abilities to the HashMaps
 		 * starting with mage then assassin then tank.
 		 */
 		abilityMage.put("Frostbolt", Frostbolt);
@@ -91,8 +91,14 @@ public class AbilityBook {
 		effects.put("Stun", Stun);
 	}
 	
+	/* 4 different print methods
+	 * printGlobal: prints out all attacks and effects for every character 
+	 * printMage: only prints attacks for Mage characters
+	 * printAssassin: only prints attacks for Assassin characters
+	 * printTank: only prints attacks for Tank characters*/
+	
 	public void printGlobal() {
-		System.out.println("All attacks and effects for all heroes");
+		System.out.println("All attacks and effects for all characters");
 		printMage();
 		printAssassin();
 		printTank();
