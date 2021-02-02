@@ -8,15 +8,13 @@ public class AbilityBook {
 	 * A global HashMap that contains all the other HashMaps
 	 * for abilities and Constructor for getName/getTypeOfSide/getTypeOfCharacter.
 	 * */
-	private ChooseYourCharacter player;
 	private HashMap<Integer, HashMap> global;
-
 	/*
 	 * Abilities for mage's including HashMap for mage's
 	 * */
 	private HashMap<String, String> abilityMage;
 	private String Frostbolt;
-	private String Intelligence;
+	private String HealingPotion;
 	private String Fireblast;
 
 	/*
@@ -24,66 +22,64 @@ public class AbilityBook {
 	 * */
 	private HashMap<String, String> abilityAssassin;
 	private String Backstab;
-	private String Poisonblades;
+	private String SlicersWrath;
 	private String Unconquerable;
 
 	/*
 	 * Abilities for tanks including HashMap for tanks
 	 * */
 	private HashMap<String, String> abilityTank;
-	private String Charge;
-	private String Enrage;
-	private String Recharge;
+	private String SheildRush;
+	private String SheildBlock;
+	private String AxeThrow;
 	
 	/*
 	 * Every effect in the game.
 	 * */
 	private HashMap<String, String> effects;
 	private String Freeze;
-	private String Burn;
 	private String Invisible;
-	private String Poison;
+	private String Stun;
 	
 	public AbilityBook() {
 		
 		global = new HashMap<Integer, HashMap>();
 		
 		abilityMage = new HashMap<String, String>();
-		Frostbolt = "Deal 15 damage to the enemy and has 20% chance to freeze the enemy.";
-		Intelligence = "You gain 25% damage increase for 2 turns and restore 15% of your current health.";
-		Fireblast = "Fireball the enemy dealing 30 damage and have a 30% chance to cause burn effect";
+		Frostbolt = "Deal 20 damage to the enemy and has a 30% chance to freeze.";
+		Fireblast = "Fireball the enemy dealing 35 damage.";
+		HealingPotion = "Heal yourself for 25.";
 		
 		abilityAssassin = new HashMap<String, String>();
 		Backstab = "Deal 15 damage but has a 40% chance to critical strike dealing 30 instead.";
-		Poisonblades = "Deal 30 damage and poison the enemy.";
-		Unconquerable = "Go invisible and regenerate 40 health";
+		Unconquerable = "Go invisible.";
+		SlicersWrath = "Slice the enemy dealing 20, 40, 60 or 80 damage";
 		
 		abilityTank = new HashMap<String, String>();
-		Charge = "Charge the boss dealing 10 damage and has a 25% chance to lower the enemy damage by 60%.";
-		Enrage = "Gain 60% attack damage for 2 turns.";
-		Recharge = "Regenerate back 80hp instantly.";
+		SheildRush = "You charge at the enemy dealing 25 damage with a 30% chance to stun.";
+		SheildBlock = "Use your sheild and block the next attack.";
+		AxeThrow = "Throw your axe dealing 35 damage.";
 		
 		effects = new HashMap<String, String>();
 		Freeze = "Enemy can not attack for 1 turn.";
-		Burn = "Enemy takes 5 damage for 3 turns.";
 		Invisible = "You can not be attacked for 1 turn.";
-		Poison = "Enemy takes an additional 30% extra damage next turn.";
+		Stun = "The enemy is stunned for 1 turn.";
 		
 		/*
 		 * Adding all the abilities to the maps
 		 * starting with mage then assassin then tank.
 		 */
 		abilityMage.put("Frostbolt", Frostbolt);
-		abilityMage.put("Intelligence", Intelligence);
+		abilityMage.put("Healing Potion", HealingPotion);
 		abilityMage.put("Fireblast", Fireblast);
 		
 		abilityAssassin.put("Backstab", Backstab);
-		abilityAssassin.put("Poisonblades", Poisonblades);
 		abilityAssassin.put("Unconquerable", Unconquerable);
+		abilityAssassin.put("Slicers Wrath", SlicersWrath);
 		
-		abilityTank.put("Charge", Charge);
-		abilityTank.put("Enrage", Enrage);
-		abilityTank.put("Recharge", Recharge);
+		abilityTank.put("Sheild Rush", SheildRush);
+		abilityTank.put("Sheild Block", SheildBlock);
+		abilityTank.put("Axe throw", AxeThrow);
 		
 		global.put(1, abilityMage);
 		global.put(2, abilityAssassin);
@@ -91,20 +87,12 @@ public class AbilityBook {
 		
 		/*Adding all effects to a HashMap*/
 		effects.put("Freeze", Freeze);
-		effects.put("Burn", Burn);
 		effects.put("Invisible", Invisible);
-		effects.put("Poison", Poison);
-		
-	}
-	
-	public void characterInfo() {
-		System.out.println("Name: " + player.getName()
-		+ "\nSide: " + player.getTypeOfSide()
-		+ "\nClass: " + player.getTypeOfCharacter);
+		effects.put("Stun", Stun);
 	}
 	
 	public void printGlobal() {
-		System.out.println("All attacks for all heroes");
+		System.out.println("All attacks and effects for all heroes");
 		printMage();
 		printAssassin();
 		printTank();
@@ -112,21 +100,23 @@ public class AbilityBook {
 	}
 	
 	public void printMage() {
-		System.out.println("\nAttacks Mage's.");
+		System.out.println("\nAttacks Faerie(good), Soul Reaper(dark)");
 		for(Map.Entry<String, String> entry : abilityMage.entrySet()) {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		}	
+		System.out.println("");
 	}
 	
 	public void printAssassin() {	
-		System.out.println("\nAttacks Assassins.");
+		System.out.println("\nAttacks Angel(good), Nightmare Shadow(dark).");
 		for(Map.Entry<String, String> entry : abilityAssassin.entrySet()) {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
-		}	
+		}
+		System.out.println("");
 	}
 	
 	public void printTank() {		
-		System.out.println("\nAttacks Tanks.");
+		System.out.println("\nAttacks SheildBearer(good), Demon(dark).");
 		for(Map.Entry<String, String> entry : abilityTank.entrySet()) {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		}	
@@ -137,5 +127,6 @@ public class AbilityBook {
 		for(Map.Entry<String, String> entry : effects.entrySet()) {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		}
+		System.out.println("");
 	}
 }
