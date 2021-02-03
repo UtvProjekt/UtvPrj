@@ -20,7 +20,7 @@ public class TheStory {
 				+ " tavern and someone calls on you. (Enter)");
 		input.nextLine();
 		
-		System.out.println("What is your name wanderer?");
+		System.out.print("What is your name wanderer?\nName: ");
 		name = input.next();
 		player.setUserName(name);
 		
@@ -28,7 +28,7 @@ public class TheStory {
 		input.nextLine();
 		
 		System.out.println("\nOf course my friend! But i have to ask.. I haven't seen your kind here before?\nWhat are you?\n");
-		System.out.println("(All) to look at the characters abilities. (Enter) to skip\n");
+		System.out.println("(All) to look at the characters. (Skip) to skip\n");
 		
 		/*One time request to see all abilities for every character.*/
 		String all;
