@@ -7,9 +7,17 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 public class AbilityDamage {
-	private int playerHealth = 100;
+	private int playerHealth;
 	private int bossHealth = 300;
+	private int ability;
 
+	/**
+	 * Method that lets you choose an ability to use and then reduces either the bosses or players health points.
+	 * 
+	 * 
+	 * @param player Object of the class ChooseYourCharacter
+	 * @param i variable that if 0 sets the players starting health
+	 */
 	public void PlayerAttack(ChooseYourCharacter player, int i) {
 		
 		if(i == 0)
@@ -19,7 +27,7 @@ public class AbilityDamage {
 		
 		System.out.println("Your turn! \nChoose an ability to use (1/2/3) or 4 to show the ability book");
 		Scanner scan = new Scanner(System.in);
-		int ability = scan.nextInt();
+		ability = scan.nextInt();
 		int random = ThreadLocalRandom.current().nextInt(10)+1;
 		
 		while(ability == 1 || ability == 2 || ability == 3)
@@ -130,12 +138,17 @@ public class AbilityDamage {
 				System.out.println("The boss dealt 25 damage to you!");
 				playerHealth = playerHealth - 25;				
 			}
-			else if(random<10)
+			else if(random<9)
 			{
 				System.out.println("The boss used Earthquake");
 				System.out.println("The boss dealt 40 critical damage to you!");
 				playerHealth = playerHealth -40;
 			}
+			else if(random<10) {
+                System.out.println("The boss used devils grace");
+                System.out.println("The boss healed for 75 health");
+                bossHealth = bossHealth + 75;
+            }
 			
 			break;
 		}
@@ -157,16 +170,25 @@ public class AbilityDamage {
 		
 		
 	}
-	
+	/**
+	 * 
+	 * @return the player's health points
+	 */
 	public int getPlayerHealth()
 	{
 		return playerHealth; 
 	}
 	
+	/**
+	 * 
+	 * @return the boss's health points
+	 */
 	public int getBossHealth()
 	{
 		return bossHealth;
 	}
+	
+	
 	
 	
 	
