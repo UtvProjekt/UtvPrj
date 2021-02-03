@@ -10,7 +10,7 @@ import game.TheStory;
 class AbilityBookTest{
 	/*
 	 * Checking if all attacks/effects are stored within the HashMaps
-	 * @return returns true if they exist*/
+	 * @return true if they exist*/
 	AbilityBook book = new AbilityBook();
 	@Test
 	void testingMageAttack() {
