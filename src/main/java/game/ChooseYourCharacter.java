@@ -10,24 +10,29 @@ public class ChooseYourCharacter {
 	private int healthOfCharacter;
 
 	/**
+	 * CreateYoutCharacter is a method where the player can create witch
+	 * side he/she wants to play on (evil/good) aswell as create witch type 
+	 * he/she wants to be (angel, demon, ..)
 	 * 
 	 * 
 	 * 
-	 * 
-	 * 
+	 * @param input input a scanner 
 	 * 
 	 * **/
 	
 	public void CreateYourCharacter(Scanner input) {
 
-			System.out.println("Pick a side [GOOD/EVIL]: ");
-			typeOfSide = input.next();
+			System.out.println("Pick a side [GOOD/EVIL]: ");			
+				typeOfSide = input.next();
+			
+			
 
 			if (!typeOfSide.toLowerCase().equals("good") && !typeOfSide.toLowerCase().equals("evil")) {
 				System.out.println("That is not valid side!");
-
+				
+				
 				while (!typeOfSide.toLowerCase().equals("good") && !typeOfSide.toLowerCase().equals("evil")) {
-					System.out.print("Pick a side [GOOD/BAD]: ");
+					System.out.print("Pick a side [GOOD/EVIL]: ");
 					typeOfSide = input.next();
 				}
 
@@ -37,9 +42,11 @@ public class ChooseYourCharacter {
 				String answer;
 				System.out.println("Pick a character - [Angel/Faerie/ShieldBearer]: ");
 				answer = input.next();
-
+				
 				if (!answer.toLowerCase().equals("angel") && !answer.toLowerCase().equals("faerie")
 						&& !answer.toLowerCase().equals("sheildbearer")) {
+				
+				
 					do {
 						System.out.println("This character doesn't exist");
 						System.out.println("Pick a character - [ANGEL/FAERIE/SHEILDBEARER]: ");
@@ -67,7 +74,8 @@ public class ChooseYourCharacter {
 
 				if (!answer.toLowerCase().equals("nightmareshadow") && !answer.toLowerCase().equals("soulreaper")
 						&& !answer.toLowerCase().equals("demon")) {
-
+					
+					
 					do {
 						System.out.println("This character doesn't exist");
 						System.out.println("Pick a character - [NightmareShadow/SoulReaper/Demon]: ");
@@ -90,6 +98,8 @@ public class ChooseYourCharacter {
 			}
 
 	}
+		
+	
 	
 	/**
 	 * 

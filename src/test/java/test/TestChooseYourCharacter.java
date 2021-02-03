@@ -6,10 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import game.ChooseYourCharacter;
-import game.TheDiffrentCharacters;
 
 class TestChooseYourCharacter {
 
+	/**
+	 * setting characters name and checking if its correct (Niadra)
+	 */
 	
 	@Test
 	public void testSetUserName()
@@ -19,26 +21,24 @@ class TestChooseYourCharacter {
 
 		assertEquals("Niadra", newCharacter.getUserName());
 	}
+	
+	/**
+	 * Testing if the input "evil" and "demon" is equal to "evil DEMON"
+	 */
 
 	@Test
 	public void testCreateYourCharacter() 
 	{
-		try(Scanner input = new Scanner(System.in)) 
-		{
+			Scanner input = new Scanner("evil demon");
 			ChooseYourCharacter newCharacter = new ChooseYourCharacter();
 			newCharacter.CreateYourCharacter(input);
-			//i terminalen skriver jag in: 
-			//1: bad 
-			//2: demon
 			
-			assertEquals("bad " + TheDiffrentCharacters.DEMON, newCharacter.getTypeOfSide() + " " + newCharacter.getTypeOfCharacter());
-		} 
-		catch (Exception e) 
-		{
-			
-		}
-		
+			assertEquals("evil " + "DEMON", newCharacter.getTypeOfSide() + " " + newCharacter.getTypeOfCharacter());
+
 	}
+
+	
+		  
 	
 	
 	
