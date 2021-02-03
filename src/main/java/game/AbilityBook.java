@@ -43,24 +43,24 @@ public class AbilityBook {
 	
 	public AbilityBook() {
 		
-		global = new HashMap<Integer, HashMap>();
+		global = new LinkedHashMap<Integer, HashMap>();
 		
-		abilityMage = new HashMap<String, String>();
+		abilityMage = new LinkedHashMap<String, String>();
 		Frostbolt = "Deal 20 damage to the enemy and has a 30% chance to freeze.";
 		Fireblast = "Fireball the enemy dealing 35 damage.";
 		HealingPotion = "Heal yourself for 25.";
 		
-		abilityAssassin = new HashMap<String, String>();
+		abilityAssassin = new LinkedHashMap<String, String>();
 		Backstab = "Deal 15 damage but has a 40% chance to critical strike dealing 30 instead.";
 		Unconquerable = "Go invisible.";
 		SlicersWrath = "Slice the enemy dealing 20, 40, 60 or 80 damage";
 		
-		abilityTank = new HashMap<String, String>();
+		abilityTank = new LinkedHashMap<String, String>();
 		SheildRush = "You charge at the enemy dealing 25 damage with a 30% chance to stun.";
 		SheildBlock = "Use your sheild and block the next attack.";
 		AxeThrow = "Throw your axe dealing 35 damage.";
 		
-		effects = new HashMap<String, String>();
+		effects = new LinkedHashMap<String, String>();
 		Freeze = "Enemy can not attack for 1 turn.";
 		Invisible = "You can not be attacked for 1 turn.";
 		Stun = "The enemy is stunned for 1 turn.";
@@ -94,7 +94,7 @@ public class AbilityBook {
 	
 	/* 4 different print methods
 	 * printGlobal: prints out all attacks and effects for every character 
-	 * printMage: only prints attacks for Mage characters
+	 * printMage: only prints attacks for mage characters
 	 * printAssassin: only prints attacks for Assassin characters
 	 * printTank: only prints attacks for Tank characters*/
 	
@@ -107,7 +107,7 @@ public class AbilityBook {
 	}
 	
 	public void printMage() {
-		System.out.println("\nAttacks Faerie(good), Soul Reaper(dark)");
+		System.out.println("\nAttacks Faerie(good), Soul Reaper(evil).\n");
 		for(Map.Entry<String, String> entry : abilityMage.entrySet()) {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		}	
@@ -115,7 +115,7 @@ public class AbilityBook {
 	}
 	
 	public void printAssassin() {	
-		System.out.println("\nAttacks Angel(good), Nightmare Shadow(dark).");
+		System.out.println("\nAttacks Angel(good), Nightmare Shadow(evil).\n");
 		for(Map.Entry<String, String> entry : abilityAssassin.entrySet()) {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		}
@@ -123,7 +123,7 @@ public class AbilityBook {
 	}
 	
 	public void printTank() {		
-		System.out.println("\nAttacks SheildBearer(good), Demon(dark).");
+		System.out.println("\nAttacks SheildBearer(good), Demon(evil).\n");
 		for(Map.Entry<String, String> entry : abilityTank.entrySet()) {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		}	
@@ -136,8 +136,11 @@ public class AbilityBook {
 		}
 		System.out.println("");
 	}
-	/*Testing methods for "AbilityBookTest"
-	 * I am testing whether its stored or not */
+	/*@return
+	 * Testing methods for jUnit test file "AbilityBookTest.java"
+	 * I am testing whether values are stored or not 
+	 */
+	
 	public boolean mageHasAttack() {
 		if(abilityMage.containsValue(Frostbolt) && abilityMage.containsValue(Fireblast) && abilityMage.containsValue(HealingPotion)) {
 			return true;
@@ -159,5 +162,11 @@ public class AbilityBook {
 		return false;
 	}
 	
+	public boolean effectIsStored() {
+		if(effects.containsValue(Freeze) && effects.containsValue(Invisible) && effects.containsValue(Stun)) {
+			return true;
+		}
+		return false;
+	}
 
 }
