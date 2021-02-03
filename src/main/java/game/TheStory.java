@@ -36,10 +36,7 @@ public class TheStory {
 		if(all.toLowerCase().equals("all")){
 			book.printGlobal();
 		}
-		else {
-			player.CreateYourCharacter(input);			
-		}
-		
+		player.CreateYourCharacter(input);			
 		
 		input.nextLine();
 		System.out.println("Ahh i see, you know i've only heard legends about your kind, " + player.getTypeOfCharacter() + "'s are known to be very strong...(Enter)");
