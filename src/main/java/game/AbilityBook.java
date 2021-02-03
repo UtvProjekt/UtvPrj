@@ -22,8 +22,8 @@ public class AbilityBook {
 	 * */
 	private HashMap<String, String> abilityAssassin;
 	private String Backstab;
-	private String SlicersWrath;
 	private String Unconquerable;
+	private String SlicersWrath;
 
 	/*
 	 * Abilities for tanks including HashMap for tanks
@@ -70,8 +70,8 @@ public class AbilityBook {
 		 * starting with mage then assassin then tank.
 		 */
 		abilityMage.put("Frostbolt", Frostbolt);
-		abilityMage.put("Healing Potion", HealingPotion);
 		abilityMage.put("Fireblast", Fireblast);
+		abilityMage.put("Healing Potion", HealingPotion);
 		
 		abilityAssassin.put("Backstab", Backstab);
 		abilityAssassin.put("Unconquerable", Unconquerable);
@@ -88,8 +88,7 @@ public class AbilityBook {
 		/*Adding all effects to a HashMap*/
 		effects.put("Freeze", Freeze);
 		effects.put("Invisible", Invisible);
-		effects.put("Stun", Stun);
-		
+		effects.put("Stun", Stun);	
 	}
 	
 	/* 4 different print methods
@@ -107,25 +106,31 @@ public class AbilityBook {
 	}
 	
 	public void printMage() {
+		int i = 1;
 		System.out.println("\nAttacks Faerie(good), Soul Reaper(evil).\n");
 		for(Map.Entry<String, String> entry : abilityMage.entrySet()) {
-			System.out.println(entry.getKey() + ": " + entry.getValue());
+			System.out.println(entry.getKey() + "(" + i + "): " + entry.getValue());
+			i++;
 		}	
 		System.out.println("");
 	}
 	
 	public void printAssassin() {	
+		int i = 1;
 		System.out.println("\nAttacks Angel(good), Nightmare Shadow(evil).\n");
 		for(Map.Entry<String, String> entry : abilityAssassin.entrySet()) {
-			System.out.println(entry.getKey() + ": " + entry.getValue());
+			System.out.println(entry.getKey() +"(" + i + "): " + entry.getValue());
+		i++;
 		}
 		System.out.println("");
 	}
 	
-	public void printTank() {		
+	public void printTank() {
+		int i = 1;
 		System.out.println("\nAttacks SheildBearer(good), Demon(evil).\n");
 		for(Map.Entry<String, String> entry : abilityTank.entrySet()) {
-			System.out.println(entry.getKey() + ": " + entry.getValue());
+			System.out.println(entry.getKey() + "(" + i +"): " + entry.getValue());
+		i++;
 		}	
 	}
 	
