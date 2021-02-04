@@ -36,6 +36,20 @@ class TestChooseYourCharacter {
 			assertEquals("evil " + "DEMON", newCharacter.getTypeOfSide() + " " + newCharacter.getTypeOfCharacter());
 
 	}
+	
+	/**
+	 * Testing if the input "good" and "angel" is equal to "evil ANGEL"
+	 */
+	@Test
+	public void testGoodCreateYourCharacter() 
+	{
+		Scanner input = new Scanner("good angel");
+		ChooseYourCharacter newCharacter = new ChooseYourCharacter();
+		newCharacter.CreateYourCharacter(input);
+		
+		assertEquals("good " + "ANGEL", newCharacter.getTypeOfSide() + " " + newCharacter.getTypeOfCharacter());
+		
+	}
 
 	
 		  
