@@ -17,6 +17,10 @@
   3. maven.. sedan: package clean
 
 
+#Hur fungerar spelet:
+
+*OBS: Det är väldigt tydligt hur spelet fungerar om man följer det som står i terminalen när man kör spelet*
+
 Programmet bygger på fyra olika klasser (AbilityBook, AbilityDamage, ChooseYourCharacter och TheStory)
 
 Spelet körs från TheFinalBoss.java där man har en metod "startStory()", spelet går ut på att välja namn och karaktär för att sedan möta en boss.
